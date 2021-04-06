@@ -33,10 +33,12 @@ class Appliance
     end
     def self.delete(keyword)
         APPLIANCES.each do |ele|
-            ele.name = nil
-            ele.made = nil
-            ele.room = nil
-        end        
+            if ele.name == keyword
+                ele.name = nil
+                ele.made = nil
+                ele.room = nil
+            end
+        end
     end
     def self.all
         APPLIANCES

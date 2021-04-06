@@ -34,7 +34,7 @@ begin
     if input == "delete"
         puts "Please enter the item you need to delete: "
         keyword = gets.chomp
-        Appliance.find keyword
+        Appliance.delete keyword
     end
     if input == "find"
         puts "Please enter the item you need to find: "
