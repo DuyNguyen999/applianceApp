@@ -31,10 +31,14 @@ begin
         appliances.name = new_name
         puts Appliance.all
     end
+    if input == "delete"
+        puts "Please enter the item you need to delete: "
+        keyword = gets.chomp
+        Appliance.find keyword
+    end
     if input == "find"
         puts "Please enter the item you need to find: "
         keyword = gets.chomp
-        # puts Appliance.all
         Appliance.find keyword
     end
 end until ['quit','q'].include? input

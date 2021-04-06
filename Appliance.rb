@@ -9,27 +9,35 @@ class Appliance
         @room = room
         APPLIANCES << self
     end
-    # def save
-    #     APPLIANCES << self
-    # end
   
-    def self.find(appliances)
-        p APPLIANCES
-        if APPLIANCES.include? appliances.name
-          puts "Yes, we have this item in the house."
-        end
-        
-        puts "No, we need to buy one."
-    end
-  
-    # def self.find(id)
-    #     if APPLIANCES.detect {|appliance| appliance.name == id }
+    # def self.find(keyword)
+    #     if APPLIANCES.first.name.include? keyword
     #     puts "Yes, we have this item in the house."
+    #     else puts "No, we need to buy one."
     #     end
-        
-    #     puts "No, we need to buy one."
     # end
-
+    
+    # def self.find(keyword)
+    #     if APPLIANCES.detect {|appliance| appliance.name == keyword }
+    #     puts "Yes, we have this item in the house."
+    #     else puts "No, we need to buy one."
+    #     end
+    # end
+    def self.find(keyword)
+        APPLIANCES.each do |ele|
+            if ele.name == keyword 
+            puts "Yes, we have this item in the house."  
+            else puts "No, we need to buy one."
+            end
+        end        
+    end
+    def self.delete(keyword)
+        APPLIANCES.each do |ele|
+            ele.name = nil
+            ele.made = nil
+            ele.room = nil
+        end        
+    end
     def self.all
         APPLIANCES
     end
