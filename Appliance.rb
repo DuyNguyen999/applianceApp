@@ -9,17 +9,26 @@ class Appliance
         @room = room
         APPLIANCES << self
     end
+    # def save
+    #     APPLIANCES << self
+    # end
   
-    def self.find(item)
-        if APPLIANCES.include? item
+    def self.find(appliances)
+        p APPLIANCES
+        if APPLIANCES.include? appliances.name
           puts "Yes, we have this item in the house."
         end
         
         puts "No, we need to buy one."
     end
-    def self.modify
+  
+    # def self.find(id)
+    #     if APPLIANCES.detect {|appliance| appliance.name == id }
+    #     puts "Yes, we have this item in the house."
+    #     end
         
-    end
+    #     puts "No, we need to buy one."
+    # end
 
     def self.all
         APPLIANCES
@@ -27,8 +36,8 @@ class Appliance
     def to_s
         [            
             "NAME: ","#{@name}",
-            "MADE :#{@made}",
-            "ROOM :#{@room}",
+            "MADE: ","#{@made}",
+            "ROOM: ","#{@room}"
         ].join(' ')
     end
 

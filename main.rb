@@ -1,6 +1,14 @@
 require "./Appliance"
 
 puts "Welcome to Appliance App"
+# This method will iterate over each line individually from the .txt # file and print it to the console
+def display_ascii_art
+    File.readlines("./ascii-art.txt") do |line|
+      puts line
+    end
+end
+
+puts display_ascii_art
 
 begin   
     print "Please enter your command:  "
@@ -14,6 +22,7 @@ begin
         room = gets.chomp
         puts "Information of the appliances"
         appliances = Appliance.new name, made, room
+        # appliances.save
         puts Appliance.all
     end
     if input == "modify"
@@ -25,6 +34,7 @@ begin
     if input == "find"
         puts "Please enter the item you need to find: "
         keyword = gets.chomp
+        # puts Appliance.all
         Appliance.find keyword
     end
 end until ['quit','q'].include? input
