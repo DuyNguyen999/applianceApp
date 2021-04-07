@@ -5,31 +5,39 @@ puts "Welcome to Appliance App"
 
 puts File.read(File.open("./ascii-art.txt"))
 
-puts "You have 4 command: add, show, modify, delete" 
+puts "You have 4 command options: add, list, modify, delete, find, show" 
 
 begin   
-    print "Please enter your command:  "
+    print "\nPlease enter your command:  "
     input = gets.chomp
     if input == "add"
-        puts "Name of the appliance "
+        puts "\nName of the appliance "
         name = gets.chomp
-        puts "Brand of the appliance "
+        puts "\nBrand of the appliance "
         made = gets.chomp
-        puts "Room of the appliance "
+        puts ""
+        puts "Room of the appliance ".center(100)
         room = gets.chomp
         
         appliances = Appliance.new name, made, room
         # appliances.save
     end
-    if input == "show"
-        puts "Information of the appliances"
+    if input == "list"
+        puts "Information of all the appliances"
         puts Appliance.all
     end
+    if input == "show"
+        puts "Please enter the item you need to show: "
+        key = gets.chomp
+        Appliance.show key
+        
+    end
+
     if input == "modify"
         puts "New name of the appliance "
         new_name = gets.chomp
         appliances.name = new_name
-        # puts Appliance.all
+        #use the find method
     end
     if input == "delete"
         puts "Please enter the item you need to delete: "

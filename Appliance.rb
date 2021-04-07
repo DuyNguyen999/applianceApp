@@ -23,11 +23,18 @@ class Appliance
     #     else puts "No, we need to buy one."
     #     end
     # end
+    # def self.find(keyword)
+    #     APPLIANCES.each do |ele|
+    #         if ele.name == keyword 
+    #         puts "Yes, we have this item in the house."  
+    #         else puts "No, we need to buy one. An alien may steal it !!!"
+    #         end
+    #     end        
+    # end
     def self.find(keyword)
         APPLIANCES.each do |ele|
             if ele.name == keyword 
-            puts "Yes, we have this item in the house."  
-            else puts "No, we need to buy one."
+            return ele
             end
         end        
     end
@@ -40,8 +47,22 @@ class Appliance
             end
         end
     end
+    def self.show(input)
+        # taking params ? name? new find or print method?
+        #check if nil? if found
+        if Appliance.find(input).nil?
+        puts input.name
+        else puts "There is none."
+        end
+
+
+    end
     def self.all
-        APPLIANCES
+        temp = []
+        APPLIANCES.each do |x|
+            temp.push(x) unless x.name.nil?
+        end
+        temp
     end
     def to_s
         [            
