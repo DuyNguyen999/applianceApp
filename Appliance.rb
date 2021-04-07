@@ -10,33 +10,18 @@ class Appliance
         APPLIANCES << self
     end
   
-    # def self.find(keyword)
-    #     if APPLIANCES.first.name.include? keyword
-    #     puts "Yes, we have this item in the house."
-    #     else puts "No, we need to buy one."
-    #     end
-    # end
-    
-    # def self.find(keyword)
-    #     if APPLIANCES.detect {|appliance| appliance.name == keyword }
-    #     puts "Yes, we have this item in the house."
-    #     else puts "No, we need to buy one."
-    #     end
-    # end
-    # def self.find(keyword)
-    #     APPLIANCES.each do |ele|
-    #         if ele.name == keyword 
-    #         puts "Yes, we have this item in the house."  
-    #         else puts "No, we need to buy one. An alien may steal it !!!"
-    #         end
-    #     end        
-    # end
     def self.find(keyword)
         APPLIANCES.each do |ele|
             if ele.name == keyword 
-            return ele
+            puts ele 
+            else puts "No, we need to buy one. An alien may steal it !!!"
             end
         end        
+    end
+    def self.modify(search_input, new_input_name, new_input_brand, new_input_room)
+        APPLIANCES.each do |ele|            
+            return ele.name = new_input_name, ele.made = new_input_brand, ele.room = new_input_room if ele.name == search_input             
+        end         
     end
     def self.delete(keyword)
         APPLIANCES.each do |ele|
@@ -48,8 +33,6 @@ class Appliance
         end
     end
     def self.show(input)
-        # taking params ? name? new find or print method?
-        #check if nil? if found
         if Appliance.find(input).nil?
         puts input.name
         else puts "There is none."
@@ -73,3 +56,11 @@ class Appliance
     end
 
 end
+
+#####
+def draw_table
+    table = TTY::table.new(["Heading1", "Heading2", "Heading3"], [ [], [], [], []  ])
+    puts table.render(:ascii)
+end
+
+####

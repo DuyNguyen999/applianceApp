@@ -1,11 +1,13 @@
 require "./Appliance"
 
-puts "Welcome to Appliance App"
+
 # This method will iterate over each line individually from the .txt # file and print it to the console
 
 puts File.read(File.open("./ascii-art.txt"))
-
-puts "You have 4 command options: add, list, modify, delete, find, show" 
+puts ""
+puts "Welcome to Appliance App".center(100)
+puts ""
+puts "You have 4 command options: add, list, modify, delete, find, show".center(100)
 
 begin   
     print "\nPlease enter your command:  "
@@ -13,31 +15,39 @@ begin
     if input == "add"
         puts "\nName of the appliance "
         name = gets.chomp
+
         puts "\nBrand of the appliance "
         made = gets.chomp
-        puts ""
-        puts "Room of the appliance ".center(100)
+
+        puts "\nRoom of the appliance "
         room = gets.chomp
         
         appliances = Appliance.new name, made, room
         # appliances.save
     end
     if input == "list"
-        puts "Information of all the appliances"
+        puts "\nInformation of all the appliances"
         puts Appliance.all
     end
     if input == "show"
-        puts "Please enter the item you need to show: "
+        puts "\nPlease enter the item you need to show: "
         key = gets.chomp
         Appliance.show key
         
     end
 
     if input == "modify"
-        puts "New name of the appliance "
+        puts "\nName of the appliance "
+        search_input = gets.chomp
+      
+        puts "\nNew name of the appliance "
         new_name = gets.chomp
-        appliances.name = new_name
-        #use the find method
+        puts "\nNew brand of the appliance "
+        new_brand = gets.chomp
+        puts "\nNew room of the appliance "
+        new_room = gets.chomp
+        
+        Appliance.modify search_input, new_name, new_brand, new_room
     end
     if input == "delete"
         puts "Please enter the item you need to delete: "
