@@ -7,7 +7,7 @@ puts File.read(File.open("./ascii-art.txt"))
 puts ""
 puts "Welcome to Appliance App".center(100)
 puts ""
-puts "You have 4 command options: add, list, modify, delete, find, show".center(100)
+puts "You have 5 command options: add, list, modify, delete, find".center(100)
 
 begin   
     print "\nPlease enter your command:  "
@@ -23,7 +23,6 @@ begin
         room = gets.chomp
         
         appliances = Appliance.new name, made, room
-        # appliances.save
     end
     if input == "list"
         puts "\nInformation of all the appliances"
@@ -56,7 +55,7 @@ begin
     end
     if input == "find"
         puts "Please enter the item you need to find: "
-        keyword = gets.chomp
-        Appliance.find keyword
+        find_keyword = gets.chomp
+        Appliance.find find_keyword
     end
 end until ['quit','q'].include? input

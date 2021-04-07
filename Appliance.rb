@@ -13,7 +13,7 @@ class Appliance
     def self.find(keyword)
         APPLIANCES.each do |ele|
             if ele.name == keyword 
-            puts ele 
+            puts "got one" 
             else puts "No, we need to buy one. An alien may steal it !!!"
             end
         end        
@@ -31,21 +31,16 @@ class Appliance
                 ele.room = nil
             end
         end
-    end
-    def self.show(input)
-        if Appliance.find(input).nil?
-        puts input.name
-        else puts "There is none."
-        end
-
-
-    end
+    end    
     def self.all
         temp = []
         APPLIANCES.each do |x|
             temp.push(x) unless x.name.nil?
         end
-        temp
+        if temp.length < 1
+        puts "No appliances" 
+        else return temp
+        end
     end
     def to_s
         [            
