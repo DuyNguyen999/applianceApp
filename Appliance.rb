@@ -12,11 +12,9 @@ class Appliance
   
     def self.find(keyword)
         APPLIANCES.each do |ele|
-            if ele.name == keyword 
-            puts "got one" 
-            else puts "No, we need to buy one. An alien may steal it !!!"
-            end
+            return puts "Got one" if ele.name == keyword                       
         end        
+        puts "No, we need to buy one. An alien may steal it !!!"
     end
     def self.modify(search_input, new_input_name, new_input_brand, new_input_room)
         APPLIANCES.each do |ele|            

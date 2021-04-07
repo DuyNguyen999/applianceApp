@@ -50,8 +50,9 @@ begin
     end
     if input == "delete"
         puts "Please enter the item you need to delete: "
-        keyword = gets.chomp
-        Appliance.delete keyword
+        delete_keyword = gets.chomp
+        Appliance.delete delete_keyword
+        # case sensitive 
     end
     if input == "find"
         puts "Please enter the item you need to find: "
