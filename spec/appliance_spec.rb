@@ -10,13 +10,10 @@ RSpec.describe "Appliance" do
         appliance = Appliance.new "TV", "Sony", "Liv"
         expect(appliance.name).to eq "TV"
     end
-    # it "should be assign" do
-    #     appliance = Appliance.new "TV", "Sony", "Liv"
-    #     expect(appliance.made).to eq "Sony"
-    # end
-    # it "create new object" do
-    #     expect {Appliance.new "TV", "Sony", "Liv"}.to change {Appliance::APPLIANCES.length}.by 1
-    # end
+   
+    it "create new object" do
+        expect {Appliance.new "TV", "Sony", "Liv"}.to change {Appliance::APPLIANCES.length}.by 1
+    end
 
 
     # it "should be respond to save" do
