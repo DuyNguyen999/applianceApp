@@ -11,8 +11,8 @@ puts font.write("Welcome to".center(30)).cyan
 puts File.read(File.open("./ascii-art.txt")).yellow
 puts ""
 
-loading_percent = TTY::ProgressBar.new("Loading [:percent]", total: 20)
-20.times do
+loading_percent = TTY::ProgressBar.new("Loading [:percent]", total: 25)
+25.times do
     sleep(0.05)
     loading_percent.advance  
   end
@@ -43,7 +43,7 @@ begin
         
     end
     if input == "Modify"
-        puts "\nName of the appliance "
+        puts "\nName of the appliance that needs to modified "
         search_input = gets.chomp
       
         puts "\nNew name of the appliance ".yellow
