@@ -12,7 +12,7 @@ class Appliance
   
     def self.find(keyword)
         APPLIANCES.each do |ele|
-            return puts "Got one" if ele.name == keyword                       
+            return puts "We have one in the house" if ele.name == keyword                       
         end        
         puts "No, we need to buy one. An alien may steal it !!!"
     end
