@@ -23,7 +23,10 @@ user_name = prompt.ask("What is your name?", default: "your name...").chomp
 puts "Hello #{user_name} !!".center(100)
 puts "You have 6 command options: Add, List, Modify, Delete, Find, Quit".center(100)
 begin   
-    input = prompt.select("Choose your command: ", %w(Add List Modify Delete Find Quit)).chomp
+    command = ['Add', 'List', 'Modify', 'Delete', 'Find', 'Quit']
+    input = prompt.select("Choose your command: ", command).chomp
+
+    # input = prompt.select("Choose your command: ", %w(Add List Modify Delete Find Quit)).chomp
     if input == "Add"
         puts "\nName of the appliance ".yellow
         name = gets.chomp
@@ -38,7 +41,7 @@ begin
     end
     if input == "List"
         puts "\nInformation of all the appliances"
-        puts Appliance.all
+        puts Appliance.list
         # puts (table = TTY::table.new(["NAME", "BRAND", "ROOM"], ["a","b","c"])).render(:ascii)
         
     end

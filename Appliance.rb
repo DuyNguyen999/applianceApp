@@ -30,7 +30,7 @@ class Appliance
             end
         end
     end    
-    def self.all
+    def self.list
         temp = []
         APPLIANCES.each do |x|
             temp.push(x) unless x.name.nil?
