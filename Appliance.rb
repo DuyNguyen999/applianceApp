@@ -36,7 +36,7 @@ class Appliance
             temp.push(x) unless x.name.nil?
         end
         if temp.length < 1
-        puts "No appliances" 
+        puts "There is no appliances!!" 
         else return temp    
             
         end
