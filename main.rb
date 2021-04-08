@@ -46,11 +46,11 @@ begin
         puts "\nName of the appliance "
         search_input = gets.chomp
       
-        puts "\nNew name of the appliance "
+        puts "\nNew name of the appliance ".yellow
         new_name = gets.chomp
-        puts "\nNew brand of the appliance "
+        puts "\nNew brand of the appliance ".yellow
         new_brand = gets.chomp
-        puts "\nNew room of the appliance "
+        puts "\nNew room of the appliance ".yellow
         new_room = gets.chomp
         
         Appliance.modify search_input, new_name, new_brand, new_room
