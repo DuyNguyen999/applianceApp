@@ -1,19 +1,15 @@
 require "./Appliance"
 
-
 RSpec.describe "Appliance" do
     
     it "should respond to name" do
         expect(Appliance.new "TV", "Sony", "Liv").to respond_to (:name)    
     end
 
-    # it "should not have a def name" do
-    #     expect(Appliance.new.name).to be_nil
-    # end 
-    # it "should be assign" do
-    #     appliance = Appliance.new "TV", "Sony", "Liv"
-    #     expect(appliance.name).to eq "TV"
-    # end
+    it "should be assign" do
+        appliance = Appliance.new "TV", "Sony", "Liv"
+        expect(appliance.name).to eq "TV"
+    end
     # it "should be assign" do
     #     appliance = Appliance.new "TV", "Sony", "Liv"
     #     expect(appliance.made).to eq "Sony"
