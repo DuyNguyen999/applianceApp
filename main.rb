@@ -1,4 +1,5 @@
 require "./Appliance"
+require "tty-prompt"
 
 
 # This method will iterate over each line individually from the .txt # file and print it to the console
@@ -7,11 +8,15 @@ puts File.read(File.open("./ascii-art.txt"))
 puts ""
 puts "Welcome to Appliance App".center(100)
 puts ""
+prompt = TTY::Prompt.new
+prompt.ask("What is your name?", default: "your name...")
+# prompt.select("Choose your destiny?", %w(Scorpion Kano Jax))
 puts "You have 5 command options: add, list, modify, delete, find".center(100)
 
 begin   
-    print "\nPlease enter your command:  "
-    input = gets.chomp
+    # print "\nPlease enter your command:  "
+    input = prompt.select("Choose your destiny?", %w(add list modify delete find))
+    # input = gets.chomp
     if input == "add"
         puts "\nName of the appliance "
         name = gets.chomp
