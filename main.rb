@@ -26,7 +26,6 @@ begin
     command = ['Add', 'List', 'Modify', 'Delete', 'Find', 'Quit']
     input = prompt.select("Choose your command: ", command).chomp
 
-    # input = prompt.select("Choose your command: ", %w(Add List Modify Delete Find Quit)).chomp
     if input == "Add"
         puts "\nName of the appliance ".yellow
         name = gets.chomp

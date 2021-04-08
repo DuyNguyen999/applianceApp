@@ -11,3 +11,5 @@ gem "tty-color"
 gem 'tty-font'
 gem 'colorize'
 gem "tty-progressbar"
+
+gem "rspec", "~> 3.10"
