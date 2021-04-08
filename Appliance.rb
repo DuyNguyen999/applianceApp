@@ -37,7 +37,8 @@ class Appliance
         end
         if temp.length < 1
         puts "No appliances" 
-        else return temp
+        else return temp    
+            
         end
     end
     def to_s
@@ -52,7 +53,7 @@ end
 
 #####
 def draw_table
-    table = TTY::table.new(["Heading1", "Heading2", "Heading3"], [ [], [], [], []  ])
+    table = TTY::table.new(["NAME", "BRAND", "ROOM"], [ [], [], [], []  ])
     puts table.render(:ascii)
 end
 

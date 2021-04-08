@@ -1,46 +1,48 @@
 require "./Appliance"
 require "tty-prompt"
+require "tty-progressbar"
+require "tty-font"
+require "colorize"
 
 
 # This method will iterate over each line individually from the .txt # file and print it to the console
+font = TTY::Font.new(:starwars)
+puts font.write("Welcome to".center(30)).cyan
+puts File.read(File.open("./ascii-art.txt")).yellow
+puts ""
 
-puts File.read(File.open("./ascii-art.txt"))
-puts ""
-puts "Welcome to Appliance App".center(100)
-puts ""
+loading_percent = TTY::ProgressBar.new("Loading [:percent]", total: 20)
+20.times do
+    sleep(0.05)
+    loading_percent.advance  
+  end
+
 prompt = TTY::Prompt.new
-prompt.ask("What is your name?", default: "your name...")
-# prompt.select("Choose your destiny?", %w(Scorpion Kano Jax))
-puts "You have 5 command options: add, list, modify, delete, find".center(100)
-
+puts ""
+user_name = prompt.ask("What is your name?", default: "your name...").chomp
+puts "Hello #{user_name} !!".center(100)
+puts "You have 6 command options: Add, List, Modify, Delete, Find, Quit".center(100)
 begin   
-    # print "\nPlease enter your command:  "
-    input = prompt.select("Choose your destiny?", %w(add list modify delete find))
-    # input = gets.chomp
-    if input == "add"
-        puts "\nName of the appliance "
+    input = prompt.select("Choose your command: ", %w(Add List Modify Delete Find Quit)).chomp
+    if input == "Add"
+        puts "\nName of the appliance ".yellow
         name = gets.chomp
 
-        puts "\nBrand of the appliance "
+        puts "\nBrand of the appliance ".yellow
         made = gets.chomp
 
-        puts "\nRoom of the appliance "
+        puts "\nRoom of the appliance ".yellow
         room = gets.chomp
         
         appliances = Appliance.new name, made, room
     end
-    if input == "list"
+    if input == "List"
         puts "\nInformation of all the appliances"
         puts Appliance.all
-    end
-    if input == "show"
-        puts "\nPlease enter the item you need to show: "
-        key = gets.chomp
-        Appliance.show key
+        # puts (table = TTY::table.new(["NAME", "BRAND", "ROOM"], ["a","b","c"])).render(:ascii)
         
     end
-
-    if input == "modify"
+    if input == "Modify"
         puts "\nName of the appliance "
         search_input = gets.chomp
       
@@ -53,15 +55,21 @@ begin
         
         Appliance.modify search_input, new_name, new_brand, new_room
     end
-    if input == "delete"
+    if input == "Delete"
         puts "Please enter the item you need to delete: "
         delete_keyword = gets.chomp
         Appliance.delete delete_keyword
         # case sensitive 
     end
-    if input == "find"
+    if input == "Find"
         puts "Please enter the item you need to find: "
         find_keyword = gets.chomp
         Appliance.find find_keyword
     end
-end until ['quit','q'].include? input
+end until ['Quit','q'].include? input
+
+def draw_table
+    # rows = rows_for appliances
+    table = TTY::table.new(["NAME", "BRAND", "ROOM"], ["a","b","c"])
+    puts table.render(:ascii)
+end
