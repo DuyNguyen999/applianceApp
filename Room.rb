@@ -1,11 +1,9 @@
 class Room
-    attr_accessor :applicance
-    def initialize()
-        @appliance = appliance
-
+    attr_accessor :room
+    def initialize(room)
+        @room = room
     end
-    APPLIANCES = []
-    
+   
 end
 
 room1 = Room.new("kitchen")
