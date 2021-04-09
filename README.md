@@ -20,6 +20,16 @@ The main target audience of this ApplianceApp are people who love shopping or pe
 The app can be run very easy by some basic command lines. Users are only required to have just very little knowledge of the computer to operate it. The target audience can have a copy of the app on Github or a zip file. 
 ## Feature list
 ### CRUD
+Add: a new item will be initializing by the initialize method in the Appliance class. The new object will have name, made, and room attribute which indicate the name of the appliances, brand of the item and the room it located. The new object then will be add to the  array.
+List: display all the item in the item array as long as it is not a "nil" value.
+Modify: pick an appliance by its name and edited its attribute as you want. 
+Delete: choose an item by name and change value to nil.
 ### Find item
+This feature allows user to find the item they want by input name of the item. If The item exist then the app will notify, otherwise it will indicate user that the item is not in the house.
 ### Nice output
+ASCII-art is applied to make the app into which increase the user experiance and first impression of the app.
+Appling tty-prompt in order to list all the command option and let user choose the command they want. It does not only make the app more professional but also reduce the chance of wrong input which can affect the performance of the app.
+TTy-Font is used to increase the choices of font. In this app, TTY-Font made the app intro more attractive to user hence it can make the app more interesting.
+Colorize is really helpful as it can add colors to the terminal app. The default of the terminal app is black and white which is boring and hard to define the command line. 
+Using progress bar to make the user more exited about the loading of the app.  
 
