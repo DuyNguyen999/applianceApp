@@ -40,9 +40,7 @@ begin
     end
     if input == "List"
         puts "\nInformation of all the appliances"
-        puts Appliance.list
-        # puts (table = TTY::table.new(["NAME", "BRAND", "ROOM"], ["a","b","c"])).render(:ascii)
-        
+        puts Appliance.list             
     end
     if input == "Modify"
         puts "\nName of the appliance that needs to modified "
@@ -68,10 +66,6 @@ begin
         find_keyword = gets.chomp
         Appliance.find find_keyword
     end
+rescue
+    puts "Error occured"
 end until ['Quit','q'].include? input
-
-def draw_table
-    # rows = rows_for appliances
-    table = TTY::table.new(["NAME", "BRAND", "ROOM"], ["a","b","c"])
-    puts table.render(:ascii)
-end
