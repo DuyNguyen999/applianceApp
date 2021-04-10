@@ -3,7 +3,7 @@ This app have 7 commands option:
 Add, List, Modify, Delete, Find, Help, Quit
 1. Add: enter your appliance name, brand and room
 2. List: display all the appliances
-3. Modify: update your appliances detail. You can choose the appliances by name
+3. Modify: update your appliances detail. You can choose the appliances by name. Keep in mind that case sensitive and spelling matter.
 4. Delete: remove the appliance out of the your list.
 5. Find: find the appliance by enter its name. An message will indicate whether the appliance is exist in the list or not.
 6. Help: assist you to use the app.
