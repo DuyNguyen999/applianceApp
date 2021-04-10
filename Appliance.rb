@@ -48,13 +48,5 @@ class Appliance
             "ROOM: ","#{@room}"
         ].join(' ')
     end
-
 end
 
-#####
-def draw_table
-    table = TTY::table.new(["NAME", "BRAND", "ROOM"], [ [], [], [], []  ])
-    puts table.render(:ascii)
-end
-
-####

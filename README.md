@@ -1,10 +1,3 @@
-CMP1041-3.1: DESIGNS a software development plan which states the purpose of the application and provides a list of functions/features that will be implemented in the application.
-CMP1041-2.1: PLANS user interactions with the application.
-CMP1041-3.3: OUTLINES how the functions/features described in the software development plan will be implemented.
-CMP1041-4.2: DESIGNS appropriate documentation or help file for a user to utilise the features of the application.
-CMP1041-6.2: UTILISES project management software to track the development of an application. TRello
-FLOwChart
-PRG1002-4.4: DEMONSTRATES algorithmic thinking applied to programming by explaining logic in a program
 # Software development plan
 ## Purpose and scope
 ### Purpose of the software
@@ -25,11 +18,30 @@ List: display all the item in the item array as long as it is not a "nil" value.
 Modify: pick an appliance by its name and edited its attribute as you want. 
 Delete: choose an item by name and change value to nil.
 ### Find item
-This feature allows user to find the item they want by input name of the item. If The item exist then the app will notify, otherwise it will indicate user that the item is not in the house.
+This feature allows user to find the item they want by input name of the item. If the item exist then the app will notify users, otherwise it will indicate users that the item is not in the house. Chosing search by name is more practical as it is hard for people to remeber item by ID or number, normally people just mention their applicances by name.
 ### Nice output
 ASCII-art is applied to make the app into which increase the user experiance and first impression of the app.
 Appling tty-prompt in order to list all the command option and let user choose the command they want. It does not only make the app more professional but also reduce the chance of wrong input which can affect the performance of the app.
 TTy-Font is used to increase the choices of font. In this app, TTY-Font made the app intro more attractive to user hence it can make the app more interesting.
 Colorize is really helpful as it can add colors to the terminal app. The default of the terminal app is black and white which is boring and hard to define the command line. 
-Using progress bar to make the user more exited about the loading of the app.  
+Using TTY-progressbar to make the user more exited about the loading of the app.  
 
+# Flow chart
+![Flow chart](./doc/flow-chart.png)
+# Project management software
+Trello is a very good option to magage the project by creating different cards which allows developers following the project schedule.
+![Trello](./doc/trello.png)
+
+# Requirement and Installation
+1. Install CLI incase you do not have one. Click here to isntall [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10) for window, you can choose other CLI or OS as you like.
+2. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+3. Clone project or download zip file. Link to Github repo: https://github.com/DuyNguyen999/applianceApp
+4. Install gems
+`gem install bundler`
+`bundle install`
+`gem install tty-prompt` 
+`gem install tty-progressbar` 
+`gem install tty-font` 
+`gem install colorized` 
+5. Run the application
+`ruby main.rb`

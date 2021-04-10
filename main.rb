@@ -21,9 +21,9 @@ prompt = TTY::Prompt.new
 puts ""
 user_name = prompt.ask("What is your name?", default: "your name...").chomp
 puts "Hello #{user_name} !!".center(100)
-puts "You have 6 command options: Add, List, Modify, Delete, Find, Quit".center(100)
+puts "You have 7 command options: Add, List, Modify, Delete, Find, Help, Quit".center(100)
 begin   
-    command = ['Add', 'List', 'Modify', 'Delete', 'Find', 'Quit']
+    command = ['Add', 'List', 'Modify', 'Delete', 'Find', 'Help', 'Quit']
     input = prompt.select("Choose your command: ", command).chomp
 
     if input == "Add"
@@ -65,6 +65,9 @@ begin
         puts "Please enter the item you need to find: "
         find_keyword = gets.chomp
         Appliance.find find_keyword
+    end
+    if input == "Help"
+        puts File.read(File.open("./help.txt"))
     end
 rescue
     puts "Error occured"
